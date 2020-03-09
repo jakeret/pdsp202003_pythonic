@@ -1,12 +1,13 @@
 from collections import defaultdict
+from typing import List, Dict
 
 
-def merge_codes(code_a_list, code_b_list):
-    if not (code_a_list and code_b_list):
+def aggregate_codes(top_level_codes: List, sub_level_codes: List) -> Dict:
+    if not (top_level_codes and sub_level_codes):
         return {}
 
     merged_codes = defaultdict(list)
-    for code_a, code_b in zip(code_a_list, code_b_list):
+    for code_a, code_b in zip(top_level_codes, sub_level_codes):
         merged_codes[code_a].append(code_b)
 
     return merged_codes
